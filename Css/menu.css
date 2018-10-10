@@ -1,0 +1,272 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:300);
+body{
+	font-family: "Roboto", sans-serif;
+	font-size: 13pt;
+	margin: 0 auto;
+	padding: 0;
+	overflow-x: hidden;
+}
+header{
+	width: 100%;
+	background-color: #e1381c;
+}
+header .login{
+	width: 35px;
+	float: left;
+	margin: 5px;
+	border-radius: 200px 200px 200px 200px;
+	-moz-border-radius: 200px 200px 200px 200px;
+	-webkit-border-radius: 200px 200px 200px 200px;
+	border: 0px solid #000000;
+	background-color: rgba(0,0,0,0.3);
+}
+#boton-menu{
+	display: none;
+}
+
+header label{
+	display: none;
+	width: 30px;
+	height: 30px;
+	padding: 10px;
+
+}
+header label:hover{
+	cursor: pointer;
+	background-color: rgba(0,0,0,0.3);
+}
+.menu ul{
+	margin: 0;
+	list-style: none;
+	display: flex;
+	justify-content: center;
+}
+.menu li:hover{
+	background: rgba(0,0,0,0.3);
+}
+.menu li a{
+	display: block;
+	padding: 15px 20px;
+	text-decoration: none;
+	color: #fff;
+}
+.logotipo{
+	display: block;
+	width: 100%;
+	overflow: hidden;
+}
+.logotipo .logo{
+	width: 100px;
+	float: left;
+}
+.buscador{
+	width: 30%;
+	height: 30px;
+	float: right;
+	margin: 0;
+	margin-top: 10px;
+	padding: 0;
+}
+.buscador input{
+	float: left;
+	height: 27px;
+	margin: 0;
+	float: left;
+	color: #000;
+	background-color: #fff;
+	border: none;
+}
+.buscador input:focus {
+	padding-left: 5px;
+	border-radius: 51px 51px 51px 51px;
+	border-radius: 50px 0px 0px 50px;
+	-moz-border-radius: 50px 0px 0px 50px;
+	-webkit-border-radius: 50px 0px 0px 50px;
+	border: 0px solid #000000;
+}
+.buscador button{
+	display: block;
+	height: 30px;
+	width: 60px;
+	float: left;
+	margin: 0;
+	padding: 0;
+	background: rgba(0,0,0,0.3);
+	border: none;
+}
+.buscador input:focus ~ button{
+	border-radius: 0px 50px 50px 0px;
+	-moz-border-radius: 0px 50px 50px 0px;
+	-webkit-border-radius: 0px 50px 50px 0px;
+	border: 0px solid #000000;
+}
+.buscador button strong{
+	margin:0;
+	margin-left: 2px;
+	padding: 0;
+	color: #fff;
+}
+section .paso{
+	display: block;
+	width: 40px;
+	height: 40px;
+	margin: 0 auto;
+	background-color: #838383;
+	border-radius: 200px 200px 200px 200px;
+	-moz-border-radius: 200px 200px 200px 200px;
+	-webkit-border-radius: 200px 200px 200px 200px;
+	border: 0px solid #000000;
+}
+section .paso p{
+	color: #F0F0F0;
+	margin-left: 15px;
+	padding-top: 10px;
+}
+section{
+	margin-bottom: 1%;
+	margin-top: 1%;
+	height: auto;
+}
+footer{
+	display: block;
+	width: 100%;
+	height: 300px;
+	margin-top: 5%;
+	background: #E15246;
+	display: flex;
+	justify-content: space-between;
+}
+footer div{
+	width: calc(100% / 3);
+	height: 300px;
+	float: left;
+	overflow: hidden;
+	margin: 0;
+}
+footer div p{
+	margin-left: 5px;
+}
+footer div p a{
+	color: #595959;
+}
+footer div p a:hover{
+	color: #474747;
+}
+footer div div{
+	width: 80%;
+	display: block;
+	margin: 0 auto;
+}
+footer div .social{
+	width: 70px;
+	height: 70px;
+	float: left;
+	margin: 0 5% 0 5%;
+	background-color: #EBEBEB;
+	border-radius: 200px 200px 200px 200px;
+	-moz-border-radius: 200px 200px 200px 200px;
+	-webkit-border-radius: 200px 200px 200px 200px;
+	border: 0px solid #000000;
+}
+footer div .social img{
+	width: 60%;
+	display: block;
+	margin: 0 auto;
+	margin-top: 20%;
+}
+footer .contenedor{
+	width: 100%;
+	height: auto;
+	background-color: #FFF;
+}
+.contenedor img{
+	width: 200px;
+	display: block;
+	margin: 0 auto;
+}
+@media (max-width: 1024px){
+	header{
+		margin-bottom: 100px;
+	}
+	footer div div{
+		width: 100%;
+		display: block;
+	}
+	footer div .social{
+		width: 50px;
+		height: 50px;
+	}
+}
+@media (max-width: 768px){
+	header{
+		float: left;
+	}
+	header label{
+		width: 10%;
+		display: block;
+	}
+	.menu{
+		position: absolute;
+		display: block;
+		background: #e1381c;
+		width: 70%;
+		margin-left: -70%;
+	}
+	.menu ul{
+		flex-direction: column;
+	}
+	#boton-menu:checked ~ .menu{
+		margin-left: 0;
+	}
+	.logotipo .logo{
+		display: block;
+		float: left;
+	}
+	.buscador{
+		width: 100%;
+		display: block;
+		margin-left: 20%;
+		float: left;
+		margin-bottom: 5px;
+	}
+	.buscador input{
+		width: 50%;
+	}
+	.slider{
+		display: none;
+	}
+	footer{
+		height: auto;
+	}
+	footer div div{
+		width: 100%;
+	}
+	footer div .social{
+		width: 50px;
+		height: 50px;
+	}
+}
+@media (max-width: 425px){
+	footer{
+		display: block;
+		width: 100%;
+		height: auto;
+		margin-top: 5%;
+		background: #E15246;
+		display: flex;
+		flex-direction: column;
+		overflow: hidden;
+	}
+	footer div{
+		width: 100%;
+		height: 300px;
+		float: left;
+	}
+	footer div div{
+		width: 100%;
+	}
+	footer div .social{
+		width: 50px;
+		height: 50px;
+	}
+}

@@ -1,119 +1,88 @@
+<!DOCTYPE html>
+<html lang="en" >
 <?php
-require_once('coneccion.php');
-require_once("lib/baseDatos/coneccion.php");
-require_once("lib/baseDatos/consultas.php");
-
-if(!isset($_GET['busqueda'])) {
-	$busqueda = "";
+if (isset($_GET['busqueda'])) {
+  $busqueda = $_GET['busqueda'];
+}
+else {
+  $busqueda = "";
+}
+if (!isset($_GET['tipo'])) {
+  $tipo = "accesorios";
 }
 else{
-	$busqueda = mysqli_real_escape_string($coneccion, $_GET['busqueda']);
+  $tipo = $_GET['tipo'];
 }
-
- $pagina = isset($_GET['pagina']) ? (int)$_GET['pagina'] : 0;
-?>
-<!DOCTYPE html>
-<html lang="en">
+ ?>
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-	<title>Advanced Store</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <title>Menu Desplegable Responsive HTML, CSS y JQuery</title>
+  <link href='https://fonts.googleapis.com/css?family=Ubuntu:400,700' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+
+  <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css'>
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Ubuntu:400,700'>
+  <link rel="stylesheet" href="Css/meinFrontendCss.css">
 	<link rel="stylesheet" type="text/css" href="Css/productosCuerpo.css">
-	<link rel="stylesheet" type="text/css" href="Css/menu.css">
-    <script src="Js/filtro.js"></script>
-	<link rel="shortcut icon" href="Media/icono_imaguen/icono_paguina.png" />
+  <script src="Js/filtro.js"></script>
+	<script src="js/paginador.js"></script>
 </head>
 <body>
-	<!-- la cabezera tendra el logo, ademas de un menu y el acceso a las personas, ademas de una forma de reguistro de usururio-->
-	<div class="logotipo"><a href="index.php"><img src="Media/icono_imaguen/logo_imaguen.png" class="logo"></a></div>
-	<header>
-		<input type="checkbox" name="" id="boton-menu">
-		<label for="boton-menu"><img src="Media/Menu.png" style="width: 30px;"></label>
-		<div class="buscador"><form action="productos.php" method="get"><input type="text" name="busqueda" id="busqueda" value=<?php echo "\"".$busqueda."\"";?>><button onclick="submit()"><strong>Buscar...</strong></button></form></div>
-			<nav class="menu">
-				<ul>
-					<li><a href="index.php">inicio</a></li>
-					<li><a href="nosotros.php">nosotros</a></li>
-					<li><a href="productos.php">productos</a></li>
-					<li><a href="contacto.php">contacto</a></li>
-				</ul>
-			</nav>
-	</header>
-	<!-- este es la seccion que muestra los productos-->
-	<section>
-	<!-- creamos un filtro-->
-		<div class="filtro">
-				<form method="get" action="productos.php">
-					<select name="busqueda" class="tipo">
-						<option value="">filtrar</option>
-						<option value="audio">audio</option>
-						<option value="accesorios">accesorios</option>
-						<option value="variedad">variedad</option>
-					</select>
-					<input type="submit" name="enviar" value="filtrar">
-				</form>
-				<form action="productos.php" method="get">
-					<select name="busqueda" class="marca">
-						<?php
-							require_once('coneccion.php');
-							$res = mysqli_query($coneccion, "SELECT marca FROM productos");
-
-							while ($fil = mysqli_fetch_array($res)){
-								echo "<option value=\"".$fil['marca']."\">".$fil['marca']."</option>";
-							}
-						?>
-					</select>
-					<input type="submit" name="enviar" value="filtrar">
-				</form>
-		</div>
-<!--
-en esta seccion se declarara la estructura:
-como se mostrara los productos tanto desde busqueda filtrado, o normal
-
-!!!NO TOCAR SALVO FRANCO
--->
-<?php
-require_once("paginador.php");
-?>
-	<form>
-		<input type="hidden" name="" id="indicador" value="<?php echo $pagina; ?>">
-		<input type="hidden" name="" id="total" value="<?php echo $cantidadPaginas; ?>">
-	</form>
-	<script type="text/javascript" src="Js/paginador.js"></script>
-
-<!--
-!!!! FIN DE LA ADVERTENCIA
--->
-	</section>
+  <header>
+    <input type="checkbox" id="btn-menu" />
+    <label for="btn-menu"><i class="fa fa-bars"></i></label>
+    <nav class="menu">
+      <ul>
+        <li><a href="#">Inicio</a></li>
+        <li class="submenu"><a href="#">Nosotros<i class="fa fa-caret-down"></i></a>
+          <ul>
+            <li><a href="#">¿Quienes Somos?</a></li>
+            <li><a href="#">Contacto</a></li>
+          </ul>
+        </li>
+        <li class="submenu"><a href="#">Productos<i class="fa fa-caret-down"></i></a>
+					<ul>
+            <li><a href="productos.php?tipo=accesorios">Accesorios</a></li>
+            <li><a href="productos.php?tipo=audio">Audio</a></li>
+						<li><a href="productos.php?tipo=variedad">Variedad</a></li>
+          </ul>
+				</li>
+      </ul>
+    </nav>
+    <div class="buscador">
+      <form class="" action="productos.php" method="get">
+        <input type="text" name="busqueda" value="" id="busqueda">
+        <button type="button" name="button" onclick="submit()" id="sub"><img src=""></button>
+      </form>
+    </div>
+		<div class="logo">
+        <img src="Media/icono_imaguen/icono_paguina.png" alt="">
+    </div>
+  </header>
+  <section>
+		<?php
+			require_once("paginador.php");
+		 ?>
+  </section>
 	<footer>
-		<!-- reguistro del dominio-->
-		<div><p>dominio reguistrado en:</p>
-			<p><a href="https://nic.ar/es"> https://nic.ar/es</a></p>
-			<p>numero de factura C: 0009-00817978</p>
-			<p>nombre de dominio: AdvancedStore.com.ar</p>
+		<div>
+			<p><a href="">autorias de vectores e iconos</a></p>
+			<p><a href="">autorias de desarrollo</a></p>
+			<p><a href="">directivos y gerenciales</a></p>
 		</div>
 		<div>
-			<!-- este es el sector de las redes sociales-->
-			<p>siguenos en: </p>
-			<div>
-				<a><div class="social"><img src="Media/png/facebook.png"></div></a>
-				<a><div class="social"><img src="Media/png/gorjeo.png"></div></a>
-				<a><div class="social"><img src="Media/png/instagram.png"></div></a>
-			</div>
+			<img src="Media/png/facebook.png" alt="">
+			<img src="Media/png/facebook.png" alt="">
+			<img src="Media/png/facebook.png" alt="">
 		</div>
-		</div>
-		<!-- autores de contenido-->
 		<div>
-			<p>autores de contenido:</p>
-			<p>documento <a href="autoria.php">autoria</a></p>
-			<p>Director: Gaston Zuñiga</p>
-			<p>gestora de ventas: Mariana noemi Zuñiga</p>
+
 		</div>
-        </footer>
-	<div class="contenedor">
-		<img src="Media/icono_imaguen/logo_imaguen.png">
-		<p>desarrolladores de Advanced Store: Franco Agustin Ojeda Zuñiga, Tomas Agustin Zuñiga</p>
-	</div>
-    <script src="Js/busquedaLive.js"></script>
+	</footer>
+</body>
+</html>
+  <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+  <script  src="js/index.js"></script>
 </body>
 </html>

@@ -1,0 +1,171 @@
+ 
+.contenedor1{
+	width: 90%;
+	height:auto;
+	min-height:500px;
+	display: block;
+	margin: 0 auto;
+}
+.contenedor1 .producto{
+	display: inline-block;
+	margin: 1%;
+	width: 300px;
+	height: 400px;
+	overflow: hidden;
+	background-color: #f5f5f5;
+	border-radius: 10px 10px 10px 10px;
+	-moz-border-radius: 10px 10px 10px 10px;
+	-webkit-border-radius: 10px 10px 10px 10px;
+	border: 1px solid #E9E9E9;
+}
+.contenedor1 .producto form button{
+	outline: none;
+	width: 300px;
+	height: 400px;
+	border: none;
+	background-color: #f5f5f5;
+}
+.contenedor1 .producto form button:focus {
+	 outline: none; 
+}
+.contenedor1 .producto form button  img{
+	width: auto;
+	height: 270px;
+	margin: 0 auto;
+	background-color: #f5f5f5;
+	border-bottom: 1px solid #CDCDCD;
+}
+.contenedor1 .producto form button div{
+	width: 100%;
+}
+.contenedor1 .producto form button div p{
+	display: block;
+	height: 15px;
+	margin: 0 auto;
+	margin-bottom: 10px;
+}
+.contenedor1 .producto form button div span{
+	margin: 0 auto;
+	margin-bottom: 10px;
+}
+.filtro{
+	display: block;
+	width: 90%	;
+	height: 100px;
+	margin: 0 auto;
+}
+.filtro form{
+	width: 50%;
+	float: left;
+}
+.filtro form .tipo, .marca{
+	width: 30%;
+	height: 30px;
+	margin-left: 10%;
+	margin-top: 5%;
+	border-radius: 22px 22px 22px 22px;
+	-moz-border-radius: 22px 22px 22px 22px;
+	-webkit-border-radius: 22px 22px 22px 22px;
+	border: 1px solid #000;
+	color: #000;
+	background-color: #fff;
+}
+.paginacion {
+	margin:50px 0;
+}
+ 
+.paginacion ul {
+	list-style: none;
+	text-align: center;
+}
+ 
+.paginacion ul li {
+	display: inline-block;
+	height: auto;
+	margin-right:10px;
+}
+ 
+.paginacion ul li a {
+	display:block;
+	padding:10px 20px;
+	text-decoration: none;
+	color: #000;
+}
+ 
+.paginacion ul li a:hover {
+	background-color: rgba(0,0,0,0.3);
+}
+@media (max-width: 768px){
+	.contenedor1 {
+	    width: 90%;
+	    margin: 0 auto;
+	    margin-top: 245px;
+	}
+}
+@media (max-width: 425px){
+	.contenedor1{
+		margin: 0 auto;
+		width: 90%;
+	}
+	.contenedor1 .producto{
+	display: inline-block;
+	margin: 1%;
+	width: 260px;
+	height: 400px;
+	overflow: hidden;
+	background-color: #f5f5f5;
+	border-radius: 10px 10px 10px 10px;
+	-moz-border-radius: 10px 10px 10px 10px;
+	-webkit-border-radius: 10px 10px 10px 10px;
+	border: 1px solid #E9E9E9;
+	}
+	.contenedor1 .producto form button{
+		outline: none;
+		width: 260px;
+		height: 400px;
+		border: none;
+		background-color: #f5f5f5;
+	}
+	.contenedor1 .producto form button:focus {
+		 outline: none; 
+	}
+	.contenedor1 .producto form button  img{
+		width: auto;
+		height: 270px;
+		margin: 0 auto;
+		background-color: #f5f5f5;
+		border-bottom: 1px solid #CDCDCD;
+	}
+	.contenedor1 .producto form button div{
+		width: 100%;
+	}
+	.contenedor1 .producto form button div p{
+		display: block;
+		height: 15px;
+		margin: 0 auto;
+		margin-bottom: 10px;
+	}
+	.paginacion{
+		width: 100%;
+		margin-top: 5%;
+		margin-left: 0;
+		float: left;
+	}
+	.paginarion ul{
+		float: left;
+		display: block;
+		width: 80%;
+		padding: 0;
+		margin-left: 2%;
+		text-align: center;
+	}
+	.paginacion ul li{
+		float: left;
+		width: calc(100% / 8);
+		margin: 1px;
+	}
+	.paginacion ul li a{
+		padding: 0;
+		size: 0.5em;
+	}
+}
